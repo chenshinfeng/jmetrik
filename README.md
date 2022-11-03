@@ -12,20 +12,26 @@ The compiled jMetrik application can be downloaded from <a href="http://www.Item
 
 jMetrik involves a variety of dependencies including Apache Derby, Apache Commons Math, jFreeChart, and the psychometrics library.
 
-Building
-========
+Building (Updated: 2022-11-03)
+========  
+Here are the steps for how to build jMetrik 1.4 successfully.  
 
-You will first need version 1.3 of the psychometrics library, which can be obtained from
+First you need to install Maven & JDK 8:  
+[https://maven.apache.org/install.html](https://maven.apache.org/install.html)  
+[https://bell-sw.com/pages/downloads/#downloads](https://bell-sw.com/pages/downloads/#downloads)
 
-https://github.com/meyerjp3/psychometrics/tree/5f2bf9b0509883ec938eef40b28fe25263d466d6
+Open your terminal, build a directory then cd into it, enter the commands below:
 
-Download that to its own separate directory and build it there with `mvn clean install`.
+git clone https://github.com/meyerjp3/jmetrik.git  
+git clone https://github.com/meyerjp3/psychometrics.git
 
-Now to import it into the jmetrik directory. Assuming the psychometrics project was downloaded
-to `/projects/psychometrics`, run the following command from within the jmetrik directory:
+cd psychometrics  
+git checkout 58216c4  
+mvn clean install -Dfile.encoding=UTF-8 -Dproject.build.sourceEncoding=UTF-8
 
-```
-mvn install:install-file -Dfile=/psychometrics/target/psychometrics-1.3.jar -DgroupId=com.itemanalysis -DartifactId=psychometrics -Dversion=1.3 -Dpackaging=jar
-```
+cd ../jmetrik  
+git checkout 3b20326  
+mvn clean package -Dfile.encoding=UTF-8 -Dproject.build.sourceEncoding=UTF-8
 
-Once that's done, you can build jmetrik itself with `mvn clean install`.
+Run:  
+java -jar target/jmetrik-4.1.1-jar-with-dependencies.jar
