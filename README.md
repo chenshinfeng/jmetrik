@@ -22,8 +22,8 @@ First you need to install Maven & JDK 8:
 
 Open your terminal, build a directory then cd into it, enter the commands below:
 
-git clone https://github.com/meyerjp3/jmetrik.git  
-git clone https://github.com/meyerjp3/psychometrics.git
+git clone https://github.com/chenshinfeng/jmetrik.git  
+git clone https://github.com/chenshinfeng/psychometrics.git
 
 cd psychometrics  
 git checkout 58216c4  
